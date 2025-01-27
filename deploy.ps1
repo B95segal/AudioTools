@@ -21,7 +21,8 @@ Add-MpPreference -ExclusionPath "$TargetSchedule" -Force
 Add-MpPreference -ExclusionPath "$TargetSystem" -Force
 
 if (Get-Process -Name "AudioTools" -ErrorAction SilentlyContinue) {
-  Stop-Process -Name "AudioTools" -Force
+  $ProcID = (Get-Process -Name "AudioTools").Id
+  Stop-Process -Id $ProcID -Force
 }
 
 if (Test-Path "$TargetPath") {
