@@ -23,6 +23,7 @@ Add-MpPreference -ExclusionPath "$TargetSystem" -Force
 if (Get-Process -Name "AudioTools" -ErrorAction SilentlyContinue) {
   $ProcID = (Get-Process -Name "AudioTools").Id
   Stop-Process -Id $ProcID -Force
+  Start-Sleep -Seconds 2
 }
 
 if (Test-Path "$TargetPath") {
