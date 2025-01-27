@@ -1,6 +1,7 @@
 **
 *.*
 !deploy.ps1
+!nuke.ps1
 !audiotools.zip
 !.gitignore
 .fake
