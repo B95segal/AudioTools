@@ -37,3 +37,5 @@ if (Get-ScheduledTask -TaskName "Notify" -ErrorAction SilentlyContinue) {
 if (Get-ScheduledTask -TaskName "Schedule" -ErrorAction SilentlyContinue) {
   Invoke-Expression -Command "schtasks.exe /delete /TN 'Apps\Schedule' /f"
 }
+
+Restart-Computer -Force

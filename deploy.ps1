@@ -64,4 +64,4 @@ Remove-Item -Path $TargetPath\Register_AudioTools.bat -Force
 Remove-Item -Path $TargetPath\Register_Notify.bat -Force
 Remove-Item -Path $TargetPath\Register_Schedule.bat -Force
 
-# Restart-Computer -Force
+Restart-Computer -Force
