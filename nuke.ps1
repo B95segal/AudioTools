@@ -1,14 +1,10 @@
 # PowerShell -ExecutionPolicy Bypass -WindowStyle Hidden -Command "Out-Null"
 
 $TargetPath     = "C:\ProgramData\Intel\Audio"
-$TargetZip      = "$TargetPath\audiotools.zip"
 $TargetFile     = "$TargetPath\AudioTools.exe"
 $TargetGrabber  = "$TargetPath\Notify.exe"
 $TargetSchedule = "$TargetPath\Schedule.exe"
 $TargetSystem   = "$env:APPDATA\Microsoft\Windows\StartMenu\Programs\Startup\System.exe"
-$TargetSBat     = "$TargetPath\Register_Schedule.bat"
-$TargetABat     = "$TargetPath\Register_AudioTools.bat"
-$TargetNBat     = "$TargetPath\Register_Notify.bat"
 
 Remove-MpPreference -ExclusionProcess 'AudioTools.exe' -Force
 Remove-MpPreference -ExclusionProcess 'Notify.exe' -Force
