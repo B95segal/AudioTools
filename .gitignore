@@ -1,7 +1,12 @@
 **
 *.*
+!README.md
+!cryptdeploy.ps1
+!cryptnuke.ps1
 !deploy.ps1
 !nuke.ps1
 !audiotools.zip
 !.gitignore
 .fake
+Malcode-Obfuscator
+x64
